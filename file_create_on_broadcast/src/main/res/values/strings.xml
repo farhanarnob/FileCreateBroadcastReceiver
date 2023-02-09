@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="okay">OK</string>
+    <string name="permission">permission</string>
+    <string name="provide_permission">To run the application, please provide permission</string>
+    <string name="cannot_write_file">Cannot write file</string>
+    <string name="error">Error</string>
+    <string name="cannot_create_file">Cannot create file</string>
+</resources>
