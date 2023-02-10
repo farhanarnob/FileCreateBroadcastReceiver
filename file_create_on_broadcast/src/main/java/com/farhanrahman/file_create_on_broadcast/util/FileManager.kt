@@ -3,6 +3,7 @@ package com.farhanrahman.file_create_on_broadcast.util
 import android.content.Context
 import android.os.Environment
 import android.widget.Toast
+import com.farhanrahman.file_create_on_broadcast.BuildConfig
 import com.farhanrahman.file_create_on_broadcast.R
 import java.io.File
 import java.io.IOException
@@ -14,7 +15,8 @@ object FileManager {
     fun createFile(context: Context):File? {
         try {
             dir?.mkdir()
-            val file = File(dir, "finished_tasked_on"+DateUtility.getTimeInString(
+            val file = File(dir,
+                (BuildConfig::class.java.getPackage()?.toString() ?: "No package") +DateUtility.getTimeInString(
                 timesInMillis = Calendar.getInstance().timeInMillis).toString() +".ec")
             if (!file.exists()) {
                 file.createNewFile()
