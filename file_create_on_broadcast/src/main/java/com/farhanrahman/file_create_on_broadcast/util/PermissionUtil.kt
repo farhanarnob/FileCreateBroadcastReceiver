@@ -15,7 +15,7 @@ import com.farhanrahman.file_create_on_broadcast.R
 object PermissionUtil {
     const val REQUEST_WRITE_PERMISSION = 200
     // Requesting permission to RECORD_AUDIO
-    private var permissionToWriteAccepted = false
+    var permissionToWriteAccepted = false
     var REQUEST_TIME = 2
     val permissions: Array<String?> =
         mutableListOf(
