@@ -12,11 +12,11 @@ import java.util.*
 object FileManager {
     var dir: File? =
         Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
-    fun createFile(context: Context):File? {
+    fun createFile(context: Context, fileHeader:String = BuildConfig.LIBRARY_PACKAGE_NAME):File? {
         try {
             dir?.mkdir()
             val file = File(dir,
-                (BuildConfig::class.java.getPackage()?.toString() ?: "No package") +DateUtility.getTimeInString(
+                (fileHeader) +DateUtility.getTimeInString(
                 timesInMillis = Calendar.getInstance().timeInMillis).toString() +".ec")
             if (!file.exists()) {
                 file.createNewFile()
