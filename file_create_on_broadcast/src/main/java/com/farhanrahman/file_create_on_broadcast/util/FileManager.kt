@@ -11,7 +11,7 @@ import java.util.*
 
 object FileManager {
     var dir: File? =
-        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS)
+        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
     fun createFile(context: Context):File? {
         try {
             dir?.mkdir()
