@@ -1,8 +1,12 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'jacoco'
 }
 
+jacoco {
+    toolVersion = "0.8.5"            // You can use the latest version instead of 0.8.5
+}
 android {
     namespace 'com.farhanrahman.filecreatebroadcastreceiver'
     compileSdk 33
@@ -21,6 +25,11 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            applicationIdSuffix ".debug"
+            testCoverageEnabled true
         }
     }
     compileOptions {
