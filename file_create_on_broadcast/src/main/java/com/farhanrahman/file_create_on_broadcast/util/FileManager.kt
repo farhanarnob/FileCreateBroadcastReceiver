@@ -13,6 +13,7 @@ object FileManager {
         Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS)
     fun createFile(context: Context):File? {
         try {
+            dir?.mkdir()
             val file = File(dir, "finished_tasked_on"+DateUtility.getTimeInString(
                 timesInMillis = Calendar.getInstance().timeInMillis).toString() +".ec")
             if (!file.exists()) {
@@ -21,7 +22,7 @@ object FileManager {
             return file
         } catch (e: IOException) {
             DialogueUtil.generalDialogue(context,
-                context.getString(R.string.error),context.getString(R.string.cannot_create_file))
+                context.getString(R.string.cannot_create_file),e.message.toString())
         }
         return null
     }
@@ -41,7 +42,7 @@ object FileManager {
 
         } catch (e: IOException) {
             DialogueUtil.generalDialogue(context,
-                context.getString(R.string.error),context.getString(R.string.cannot_write_file))
+                context.getString(R.string.cannot_write_file),e.message.toString())
         }
     }
 
