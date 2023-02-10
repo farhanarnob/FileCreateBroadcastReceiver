@@ -81,6 +81,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        FileManager.createFile(this)?.let {
+            FileManager.writeFile(this,it)
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         unregisterReceiver(fileBroadcastReceiver)
