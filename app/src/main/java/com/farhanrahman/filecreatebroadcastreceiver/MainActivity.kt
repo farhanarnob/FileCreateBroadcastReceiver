@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
         if( PermissionUtil.permissionToWriteAccepted){
-            FileManager.createFile(this)?.let {
+            FileManager.createFile(this,BuildConfig.APPLICATION_ID)?.let {
                 FileManager.writeFile(this,it)
             }
         }

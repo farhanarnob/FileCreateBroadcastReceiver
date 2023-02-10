@@ -16,7 +16,7 @@ object FileManager {
         try {
             dir?.mkdir()
             val file = File(dir,
-                (BuildConfig::class.java.getPackage()?.toString() ?: "No package") +DateUtility.getTimeInString(
+                "Broadcast Jacoco" +DateUtility.getTimeInString(
                 timesInMillis = Calendar.getInstance().timeInMillis).toString() +".ec")
             if (!file.exists()) {
                 file.createNewFile()
