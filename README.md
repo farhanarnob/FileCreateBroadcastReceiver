@@ -132,6 +132,11 @@ tools:ignore="ScopedStorage"/>
     unregisterReceiver(fileBroadcastReceiver);
   }
 ```
+#### Storage location
+
+```xml
+/storage/emulated/0/Download/Coverage.ec
+```
 
   
 

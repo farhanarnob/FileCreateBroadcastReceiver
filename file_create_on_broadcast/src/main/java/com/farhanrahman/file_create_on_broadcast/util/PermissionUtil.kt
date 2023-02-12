@@ -23,7 +23,14 @@ object PermissionUtil {
                 <= Build.VERSION_CODES.Q
             ) {
                 Manifest.permission.WRITE_EXTERNAL_STORAGE} else { null}
-        ).filter { !it.isNullOrEmpty()}.toTypedArray()
+        ).also {
+            it.addAll(
+                if (Build.VERSION.SDK_INT
+                    >= Build.VERSION_CODES.S
+                ) { arrayOf(Manifest.permission.MANAGE_EXTERNAL_STORAGE) }
+                else { arrayOf() }
+            )
+        }.filter { !it.isNullOrEmpty()}.toTypedArray()
 
     fun requestPermission(activity: Activity) {
         if(permissions.isNotEmpty()){
