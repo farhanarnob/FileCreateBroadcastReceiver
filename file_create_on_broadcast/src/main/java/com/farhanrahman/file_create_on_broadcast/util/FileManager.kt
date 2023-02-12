@@ -3,21 +3,19 @@ package com.farhanrahman.file_create_on_broadcast.util
 import android.content.Context
 import android.os.Environment
 import android.widget.Toast
-import com.farhanrahman.file_create_on_broadcast.BuildConfig
 import com.farhanrahman.file_create_on_broadcast.R
 import java.io.File
 import java.io.IOException
 import java.util.*
 
 object FileManager {
-    var dir: File? =
-        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
     fun createFile(context: Context):File? {
         try {
-            dir?.mkdir()
+            val dir = File(
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "")
+            dir.mkdir()
             val file = File(dir,
-                "Broadcast Jacoco" +DateUtility.getTimeInString(
-                timesInMillis = Calendar.getInstance().timeInMillis).toString() +".ec")
+                "Coverage"+".ec")
             if (!file.exists()) {
                 file.createNewFile()
             }
