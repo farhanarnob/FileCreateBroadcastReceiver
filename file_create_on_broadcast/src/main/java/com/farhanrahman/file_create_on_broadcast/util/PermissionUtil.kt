@@ -31,6 +31,8 @@ object PermissionUtil {
                 activity, permissions,
                 REQUEST_WRITE_PERMISSION
             )
+        }else{
+            permissionToWriteAccepted = true
         }
 
     }

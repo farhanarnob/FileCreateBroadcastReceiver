@@ -1,6 +1,7 @@
 package com.farhanrahman.file_create_on_broadcast.util
 
 import android.content.Context
+import android.os.Build
 import android.os.Environment
 import android.widget.Toast
 import com.farhanrahman.file_create_on_broadcast.R
@@ -11,8 +12,15 @@ import java.util.*
 object FileManager {
     fun createFile(context: Context):File? {
         try {
-            val dir = File(
-                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "")
+            val dir = if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+                File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).toString())
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R ) {
+                File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).toString())
+            } else {
+                File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString())
+            }
+//                File(
+//                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).toString() + "")
             dir.mkdir()
             val file = File(dir,
                 "Coverage"+".ec")
