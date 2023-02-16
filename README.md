@@ -66,7 +66,7 @@ dependencies {
 
     implementation 'com.android.support:multidex:1.0.3'
     
-    implementation 'com.github.farhanarnob:FileCreateBroadcastReceiver:1.5'
+    implementation 'com.github.farhanarnob:FileCreateBroadcastReceiver:1.8'
     
 } 
 ```
@@ -95,6 +95,14 @@ tools:ignore="ScopedStorage"/>
   #### In Main Activity
   
 ```java
+
+ import com.farhanrahman.file_create_on_broadcast.service.CustomBroadcastReceiverName;
+ import com.farhanrahman.file_create_on_broadcast.service.FileBroadcastReceiver;
+ import com.farhanrahman.file_create_on_broadcast.util.FileManager;
+ import com.farhanrahman.file_create_on_broadcast.util.PermissionUtil;
+ import java.io.File;
+
+
   private final FileBroadcastReceiver fileBroadcastReceiver = new FileBroadcastReceiver();
 
   protected void onCreate(Bundle savedInstanceState) {
